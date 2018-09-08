@@ -16,7 +16,10 @@
             'people' => 'People',
             'meeting' => 'Meeting' ], 'basic', ['class'=>'form-control','placeholder' => 'Pick a type...'])}}
     </div>
-    
+    <div class='form-group'>
+        {{Form::label('project','Project')}}
+        {{Form::text('project','',['class'=>'form-control', 'placeholder'=>'Project name...'])}}
+    </div>
    
     {{Form::submit('Submit',['class'=>'btn btn-primary'])}}
     {!! Form::close() !!}

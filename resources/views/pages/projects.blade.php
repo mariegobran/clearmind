@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <h3>{{$title}}</h3>
-     <!-- User's tasks -->
-     @if(count($tasks)>0)
+    <h3>Projects</h3>
+     <!-- User's projects -->
+     @if(isset($projects))
      <table class="table table-dark">
         <thead>
             <tr>
@@ -12,21 +12,20 @@
             </tr>
         </thead>
         <tbody>
-        @foreach($tasks as $task )
+        @foreach($projects as $project )
         <tr>
-        <td><a href={{url('/tasks/'.$task->id)}}>{{$task->description}}</a></td>
-            <td>{{$task->type}}</td>
+        <td><a href={{url('/projects/'.$project->id)}}>{{$project->description}}</a></td>
+            <td>{{$project->type}}</td>
         </tr>
         @endforeach
         </tbody>
     </table>
-    {{$tasks->links()}}
     @else
-        <h5 >No tasks</h5>
+        <h5 >No projects</h5>
     @endif
     
     <div class='text-center'>
-            <a class='btn btn-secondary' href={{url('/tasks/create')}}> Add a new task </a>
+            <a class='btn btn-secondary' href={{url('/projects/create')}}> Add a new project </a>
             </div>
 
 @endsection

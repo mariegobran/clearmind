@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use App\Task;
+use App\Project;
 
 class ProjectsController extends Controller
 {
@@ -14,7 +17,9 @@ class ProjectsController extends Controller
     public function index()
     {
         $vars = PagesController::getMenu();
-        $vars['projects'] = Project::paginate(7);
+        $user_id = auth()->user()->id;
+        $user = User::find($user_id);
+        $vars['projects'] = $user->projects();
         return view('pages.projects')->with($vars);
     }
 

@@ -11,6 +11,6 @@ class Project extends Model
     }
 
     public function tasks(){
-        return $this->hasMany('App\tasks');
+        return $this->hasMany('App\ProjectTask');
     }
 }

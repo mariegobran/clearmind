@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Task;
 use App\User;
+use App\Project;
 
 class TasksController extends Controller
 {
@@ -16,7 +17,8 @@ class TasksController extends Controller
     public function index()
     {
         $vars = PagesController::getMenu();
-        $vars['tasks'] = Task::paginate(7);
+        $user_id = auth()->user()->id;
+        $vars['tasks'] = Task::where('user_id','=',$user_id)->paginate(7);
         return view('tasks.index')->with($vars);
     }
 
@@ -55,6 +57,10 @@ class TasksController extends Controller
         switch($task->type){
             case 'project':
                 //TODO: create/modify a project by adding a task
+                $project = new Project;
+                $project->name = $request->input('project');
+                $project->user_id = auth()->user()->id;
+                $project->save();
                 break;
             case 'location':
             case 'people':

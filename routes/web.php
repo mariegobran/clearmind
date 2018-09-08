@@ -19,7 +19,7 @@ Route::get('/profile','PagesController@profile');
 
 Route::get('/meetings','PagesController@meetings');
 
-Route::get('/projects','PagesController@projects');
+Route::get('/projects','ProjectsController@index');
 
 Route::get('/location-based','PagesController@locationTasks');
 
