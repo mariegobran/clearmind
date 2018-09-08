@@ -51,6 +51,17 @@ class TasksController extends Controller
         $task->user_id = auth()->user()->id;
         $task->save();
 
+        //check type and add to different tasks categories 
+        switch($task->type){
+            case 'project':
+                //TODO: create/modify a project by adding a task
+                break;
+            case 'location':
+            case 'people':
+            case 'meeting':
+            default:
+        }
+
         $vars = PagesController::getMenu();
         $vars['success'] = 'Task created!';
         return redirect('/tasks')->with($vars);

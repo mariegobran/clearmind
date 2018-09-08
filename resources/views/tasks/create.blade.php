@@ -16,6 +16,8 @@
             'people' => 'People',
             'meeting' => 'Meeting' ], 'basic', ['class'=>'form-control','placeholder' => 'Pick a type...'])}}
     </div>
+    
+   
     {{Form::submit('Submit',['class'=>'btn btn-primary'])}}
     {!! Form::close() !!}
 @endsection
