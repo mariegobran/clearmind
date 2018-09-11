@@ -3,26 +3,23 @@
 @section('content')
     <h3>Projects</h3>
      <!-- User's projects -->
-     @if(isset($projects))
      <table class="table table-dark">
         <thead>
             <tr>
-            <th scope="col">Description</th>
-            <th scope="col">Type</th>
+            <th scope="col">id</th>
+            <th scope="col">name</th>
             </tr>
         </thead>
         <tbody>
-        @foreach($projects as $project )
+        @foreach($projects as $project)
         <tr>
-        <td><a href={{url('/projects/'.$project->id)}}>{{$project->description}}</a></td>
-            <td>{{$project->type}}</td>
+            <td>{{$project->id}}</td>
+            <td>{{$project->name}}</td>
         </tr>
         @endforeach
         </tbody>
     </table>
-    @else
-        <h5 >No projects</h5>
-    @endif
+    
     
     <div class='text-center'>
             <a class='btn btn-secondary' href={{url('/projects/create')}}> Add a new project </a>

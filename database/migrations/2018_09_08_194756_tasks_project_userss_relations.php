@@ -13,7 +13,7 @@ class TasksProjectUserssRelations extends Migration
      */
     public function up()
     {
-        Schema::table('projects', function (Blueprint $table) {
+        Schema::table('projects', function ($table) {
             $table->integer('user_id');
         });
 
@@ -26,8 +26,8 @@ class TasksProjectUserssRelations extends Migration
      */
     public function down()
     {
-        Schema::table('projects', function (Blueprint $table) {
-            //
+        Schema::table('projects', function ($table) {
+            $table->dropColumn('user_id');
         });
     }
 }

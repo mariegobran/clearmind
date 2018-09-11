@@ -19,7 +19,7 @@ class ProjectsController extends Controller
         $vars = PagesController::getMenu();
         $user_id = auth()->user()->id;
         $user = User::find($user_id);
-        $vars['projects'] = $user->projects();
+        $vars['projects'] = $user->projects;
         return view('pages.projects')->with($vars);
     }
 
